@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Pagina web</title>
+</head>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="estilo.css">
+	<link rel="shortcut icon" href="imagenes/favicon.png">
+<body>
+	<div id="contenedor">
+	<header> 
+		<nav> 
+		<a href="index.html"> INICIO</a> 
+		<a href="GALERIA.html"> GALERIA</a>
+		<a href="sucursales.html"> SUCURSALES</a>
+		<a href="contacto.html"> CONTACTANOS</a>
+		</nav>
+		 
+		<section class="textos-headerh1">
+		<h1> CRAYON</h1>
+			<div class="textos-headerh2">
+			<h2> El estilo nunca es accidente</h2>
+		</section>
+				
+
+		
+		</header>
+		
+	<section>
+				<form name="datos" action="conexion.php" method="post">
+					<h1> CITA </h1>
+					<br>
+						<label> Nombre</label> <input type="text" name="nombre">
+						<br> <br> <label> Telefono</label> <input type="text" name="telefono">
+						<br> <br> <label> Correo</label>  <input type="text" name="correo">
+						<br> <br> <label> Comentario</label> <input type="text" name="comentario">
+						<br> <br> <input type="submit" id="enviar" name="enviar" value="E N V I A R">
+						
+					</br>
+					
+				
+	</div>
+	 
+		<footer> 
+		<div class="contenedor-footer">	
+		<h4> Dirección  </h4> <p>  Sección 2 Av. ProlongaciónCol. Valle de Anáhuac </p>
+			<h4> Telefono</h4> <p> 5510253697 </p>
+      <a href="https://www.facebook.com/" target="_blank"> <img class="img" src="imagenes/instagram(1).png"> </a>
+			<a href="https://www.instagram.com/?hl=es-la/" target="_blank"> <img class="img" src="imagenes/instagram.png"> </a>
+			</div>
+			
+			<h5 class="titulo-final"> ACTIVIDAD | GIUCY NOHÉMI ÁVALOS </h2>
+		</footer>
+				
+	</div>	
+			
+	
+	
+</body>
+</html>
+	
+<? php
+
+$nombre=$_POST ["nombre"];
+	$correo=$_POST ["telefono"];
+	$telefono=$_POST ["correo"];
+	$comentario=$_POST ["comentario"];
+
+	
+$insertar = "INSERT into registro VALUES ('$nombre', '$correo', '$telefono', '$comentario')";
+
+$resultado = mysqli_query ($conexion, $insertar)
+			or die ("Error al insertar registro");
+
+mysqli_close($conexion);
+echo"Los datos se insertaron correctamente";
+
+?>
+
